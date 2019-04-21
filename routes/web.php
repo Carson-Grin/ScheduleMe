@@ -14,12 +14,17 @@
 
 // this will open up welcome page
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::check()){
+        return view('welcome');
+    }else{
+        return view('login');
+    }
+    
 });
 
+Route::get('events', 'EventController@index')->name('events.index');
+Route::post('events', 'EventController@addEvent')->name('events.add');
 
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
