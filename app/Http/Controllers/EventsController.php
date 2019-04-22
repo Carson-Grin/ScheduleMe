@@ -3,12 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Controller;
+use Auth;
+use Validator;
+use App\Event;
 
 class EventsController extends Controller
 {
     //shows the events on the page
     public function index(){
-        return view('events');
+        $events = Event::get();
+        $event_list = [];
+
+        foreach($events as $key => $event){
+            $event_list = Calendar::event(
+                $event->event_name,
+                true,
+                new \DateTime($event->start_date),
+                new \DateTime($event->end_date. ' +1 day')
+            );
+         }
+         $calendar_details = Calendar::addEvents($event_list);
+        return view('events', compact('calendar_details') );
     }
     //adds event and makes sure all data entries are filled out
     public function addEvent(Request $request){
