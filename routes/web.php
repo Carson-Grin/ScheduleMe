@@ -18,7 +18,7 @@
 // this will open up welcome page
 Route::get('/', function () {
     if(Auth::check()){
-        return view('welcome');
+        return view('events');
     }else{
         return view('auth.login');
     }
