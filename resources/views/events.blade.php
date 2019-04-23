@@ -50,6 +50,26 @@
                         </div>
                       </div>
 
+		      <div class = "col-xs-3 col-sm-3 col-md-3">
+                        <div class="form-group">
+                           {!! Form::label('start_time', 'Start Time:') !!}
+                           <div class="">
+                           {!! Form::time('start_time', null, ['class' => 'form-control']) !!}
+                           {!! $errors->first('start_time', '<p class="alert alert-danger">:message</p>') !!}
+                           </div>
+                        </div>
+                      </div>
+
+		      <div class = "col-xs-3 col-sm-3 col-md-3">
+                        <div class="form-group">
+                           {!! Form::label('end_date', 'End Time:') !!}
+                           <div class="">
+                           {!! Form::time('end_time', null, ['class' => 'form-control']) !!}
+                           {!! $errors->first('end_time', '<p class="alert alert-danger">:message</p>') !!}
+                           </div>
+                        </div>
+                      </div>
+
                       <div class="col-xs-1 col-sm1 col-md-1 text-center"> &nbsp;<br/>
                       {!! Form::submit('Add Event',['class' => 'btn btn-primary']) !!}
                       </div>
