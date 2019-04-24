@@ -32,7 +32,7 @@ class EventsController extends Controller
             'event_name' => 'required',
             'start_date' => 'required',
             'start_time' => 'required',
-            'end_date' => 'required',
+            //'end_date' => 'required',
 	        'end_time' => 'required'
         ]);
 

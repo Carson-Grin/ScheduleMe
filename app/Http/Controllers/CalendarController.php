@@ -29,7 +29,7 @@ class CalendarController extends Controller
 			$event->name,
 			false,
 			new DateTime($event->start_date.$event->start_time),
-			new DateTime($event->end_date.$event->end_time)
+			new DateTime($event->start_date.$event->end_time)
 		);
 	}
 
