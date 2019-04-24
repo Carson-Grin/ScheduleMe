@@ -18,6 +18,11 @@ class EventsController extends Controller
 {
     //shows the events on the page
     public function index(){
+
+        $events = DB::table('events')->where('email',Auth::user()->email)->get();
+
+
+
         return view('events');  
     }
     //adds event and makes sure all data entries are filled out
@@ -25,7 +30,8 @@ class EventsController extends Controller
         $validator = Validator::make($request->all(),[
             'event_name' => 'required',
             'start_date' => 'required',
-	        'start_time' => 'required',
+            'start_time' => 'required',
+            'end_date' => 'required',
 	        'end_time' => 'required'
         ]);
 

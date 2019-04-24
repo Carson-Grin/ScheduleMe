@@ -44,7 +44,16 @@
                         </div>
                       </div>
 
-                      
+                      <div class = "col-xs-3 col-sm-3 col-md-3">
+                        <div class="form-group">
+                           {!! Form::label('end_date', 'End Date:') !!}
+                           <div class="">
+                           {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
+                           {!! $errors->first('end_date', '<p class="alert alert-danger">:message</p>') !!}
+                           </div>
+                        </div>
+                      </div>
+
 
 		      <div class = "col-xs-3 col-sm-3 col-md-3">
                         <div class="form-group">
