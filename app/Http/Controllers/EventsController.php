@@ -18,29 +18,15 @@ class EventsController extends Controller
 {
     //shows the events on the page
     public function index(){
-   //     $events = Event::get();
-        $event_list = [];
-
-  //     foreach($events as $key => $event){
-   //         $event_list[] = Calendar::event(
-   //             $event->event_name,
-   //             true,
-   //             new \DateTime($event->start_date),
-   //             new \DateTime($event->end_date. ' +1 day')
-   //         );
-   //      }
-        $calendar = Calendar::addEvents($event_list);
-        return view('events', compact('calendar'));  
-       // , compact('calendar_details')
+        return view('events');  
     }
     //adds event and makes sure all data entries are filled out
     public function addEvent(Request $request){
         $validator = Validator::make($request->all(),[
             'event_name' => 'required',
             'start_date' => 'required',
-	    'end_date' => 'required',
-	    'start_time' => 'required',
-	    'end_time' => 'required'
+	        'start_time' => 'required',
+	        'end_time' => 'required'
         ]);
 
         if($validator->fails()){
@@ -59,10 +45,10 @@ class EventsController extends Controller
 	 */
 
 	DB::table('events')->insertGetId(['name' => $request['event_name'],
-					  'start_date' => $request['start_date'],
-				  	  'end_date' => $request['end_date'],
+                      'start_date' => $request['start_date'],
+                      'end_date' => $request['start_date'],
 					  'start_time' => $request['start_time'],
-					  'end_time' => $request['end_time'],
+                      'end_time' => $request['end_time'],
 					  'email' => Auth::user()->email,
 				        ]);
 
