@@ -18,7 +18,7 @@
 // this will open up welcome page
 Route::get('/', function () {
     if(Auth::check()){
-        return view('events');
+        return redirect()->action('EventsController@index');
     }else{
         return view('auth.login');
     }
@@ -30,5 +30,7 @@ Route::get('events', 'EventsController@index')->name('events.index');
 Route::post('events', 'EventsController@addEvent')->name('events.add');
 
 
+Route::get('calendar', 'CalendarController@index');
+Route::post('calendar', 'CalendarController@index');
 
 

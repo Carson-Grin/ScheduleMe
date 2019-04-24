@@ -8,25 +8,26 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Validator;
 use App\Events\Event;
+use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
 
 class EventsController extends Controller
 {
     //shows the events on the page
     public function index(){
-        $events = Event::get();
+   //     $events = Event::get();
         $event_list = [];
 
-       foreach($events as $key => $event){
-            $event_list[] = Calendar::event(
-                $event->event_name,
-                true,
-                new \DateTime($event->start_date),
-                new \DateTime($event->end_date. ' +1 day')
-            );
-         }
-        $calendar_details = Calendar::addEvents($event_list);
-        return view('events', compact('calendar_details'));  
+  //     foreach($events as $key => $event){
+   //         $event_list[] = Calendar::event(
+   //             $event->event_name,
+   //             true,
+   //             new \DateTime($event->start_date),
+   //             new \DateTime($event->end_date. ' +1 day')
+   //         );
+   //      }
+        $calendar = Calendar::addEvents($event_list);
+        return view('events', compact('calendar'));  
        // , compact('calendar_details')
     }
     //adds event and makes sure all data entries are filled out
@@ -52,4 +53,6 @@ class EventsController extends Controller
         \Session::flash('succes', 'Event has been added to your calendar.');
         return Redirect::to('/events');
     }
+
+
 }

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('style')
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
-@endsection
 
 @section('content')
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
         <div class="container">
 
             <div class="panel panel-primary">
@@ -55,31 +55,51 @@
                         </div>
                       </div>
 
+		      <div class = "col-xs-3 col-sm-3 col-md-3">
+                        <div class="form-group">
+                           {!! Form::label('start_time', 'Start Time:') !!}
+                           <div class="">
+                           {!! Form::time('start_time', null, ['class' => 'form-control']) !!}
+                           {!! $errors->first('start_time', '<p class="alert alert-danger">:message</p>') !!}
+                           </div>
+                        </div>
+                      </div>
+
+		      <div class = "col-xs-3 col-sm-3 col-md-3">
+                        <div class="form-group">
+                           {!! Form::label('end_date', 'End Time:') !!}
+                           <div class="">
+                           {!! Form::time('end_time', null, ['class' => 'form-control']) !!}
+                           {!! $errors->first('end_time', '<p class="alert alert-danger">:message</p>') !!}
+                           </div>
+                        </div>
+                      </div>
+
                       <div class="col-xs-1 col-sm1 col-md-1 text-center"> &nbsp;<br/>
                       {!! Form::submit('Add Event',['class' => 'btn btn-primary']) !!}
                       </div>
-                    </div>
-                    {!! Form::close() !!}
+
+
+                      
+                    </div>          
 
                 </div>
+
+                <button onclick="location.href='{{ url('calendar') }}'">
+                View your Calendar</button>
+
+                {!! Form::close() !!}
 
             </div>
 
 
-            <div class="panel panel-primary">
-                <div class="panel-heading">My Events </div>
-                <div class="panel-body" >
 
-                    {!! $calendar_details->calendar() !!}
-                    
-                </div>
-              </div>
+
+
 
         </div>
 
+        
+
 @endsection
 
-@section('script')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-{!! $calendar->script() !!}
