@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -23,14 +24,12 @@ class CalendarController extends Controller
 	foreach ($events as $event) {
 		if (strlen($event->name) > 30)
 			$event->name = substr($event->name, 0, 20)."\n".substr($event->name, 21, strlen($event->name) - 20);
-	
-		$desc = $event->name."\nfrom ".$event->start_time." to ".$event->end_time;
 
 		$event_list[] = Calendar::event(
-			$desc,
-			true,
-			$event->start_date,
-			$event->end_date
+			$event->name,
+			false,
+			new DateTime($event->start_date.$event->start_time),
+			new DateTime($event->end_date.$event->end_time)
 		);
 	}
 
