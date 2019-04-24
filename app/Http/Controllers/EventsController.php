@@ -35,7 +35,7 @@ class EventsController extends Controller
 	        'end_time' => 'required'
         ]);
 
-        if($validator->fails()){
+	if($request->start_time >= $request->end_time or $validator->fails()){
             \Session::flash('warning', 'Please enter the valid details');
             return Redirect::to('/events')->withInput()->withErrors($validator);
         }
