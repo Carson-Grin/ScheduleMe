@@ -35,7 +35,23 @@ class CalendarController extends Controller
 		);
 	}
 
-	$calendar = Calendar::addEvents($event_list);
+	$calendar;
+	if (empty($event_list))
+	{
+		$empty_list = [];
+		$calendar = Calendar::addEvents($empty_list);
+	}	
+	else
+	{
+		$calendar = Calendar::addEvents($event_list)
+				->setOptions([
+					'selectable' => true,
+				])
+				->setCallbacks([
+					'eventClick' => 'function(event) { alert(event.title); }'
+				]);
+	}
+
         return view('calendar', compact('calendar'));
     }
 
