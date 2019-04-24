@@ -4,13 +4,12 @@
 @section('content')
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
         <div class="container">
 
             <div class="panel panel-primary">
 
-              <div class="panel-heading"> Calendar to keep track of Events and Invite your Friends</div>
+              <div class="panel-heading"> Calendar to keep track of Events</div>
 
                 <div class="panel-body">
 
@@ -45,15 +44,7 @@
                         </div>
                       </div>
 
-                      <div class = "col-xs-3 col-sm-3 col-md-3">
-                        <div class="form-group">
-                           {!! Form::label('end_date', 'End Date:') !!}
-                           <div class="">
-                           {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
-                           {!! $errors->first('end_date', '<p class="alert alert-danger">:message</p>') !!}
-                           </div>
-                        </div>
-                      </div>
+                      
 
 		      <div class = "col-xs-3 col-sm-3 col-md-3">
                         <div class="form-group">
