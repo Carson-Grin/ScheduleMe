@@ -8,7 +8,7 @@ class Events extends Model
 {
     //
     protected $fillable = [
-        'name', 'start_date', 'end_date', 'email',
+        'name', 'start_date', 'end_date', 'start_time', 'end_time', 'email',
     ];
 
 }
