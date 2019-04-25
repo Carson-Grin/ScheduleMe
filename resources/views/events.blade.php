@@ -93,8 +93,33 @@
             </div>
 
 
+       
+
+          <div class="container">
+
+            <div class="panel panel-primary">
+
+              <div class="panel-heading"> My Events</div>
+
+                <div class="panel-body">
 
 
+                @if(count($event_list))
+                  @foreach ($event_list as $event) 
+                  {{ $event[0] }}
+                  {{ $event[3] }}
+                  <p align="right">
+                  <button onclick="location.href='{{ url('events' , $event[1]) }}'">
+                    Delete Event</button>
+                    <br>
+                    </p>
+                  @endforeach
+                @endif
+        
+          </div>
+            </div>
+              </div>
+                </div>
 
 
         </div>

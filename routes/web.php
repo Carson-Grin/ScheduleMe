@@ -26,11 +26,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('events/{name}', 'EventsController@delEvent');
+
 Route::get('events', 'EventsController@index')->name('events.index');
 Route::post('events', 'EventsController@addEvent')->name('events.add');
 
 
 Route::get('calendar', 'CalendarController@index');
 Route::post('calendar', 'CalendarController@index');
+
+
 
 

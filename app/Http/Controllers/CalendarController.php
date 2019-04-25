@@ -25,8 +25,8 @@ class CalendarController extends Controller
 		if (strlen($event->name) > 30)
 		$event->name = substr($event->name, 0, 20)."\n".substr($event->name, 21, strlen($event->name) - 20);
 	
-	$desc = $event->name."\nfrom ".$event->start_time." to ".$event->end_time;
-
+		$desc = $event->name."\nfrom ".$event->start_time." to ".$event->end_time;
+		
 		$event_list[] = Calendar::event(
 			$desc,
 			true,
