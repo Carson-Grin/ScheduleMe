@@ -23,8 +23,9 @@ class CalendarController extends Controller
 	
 	foreach ($events as $event) {
 		if (strlen($event->name) > 30)
-			$event->name = substr($event->name, 0, 20)."\n".substr($event->name, 21, strlen($event->name) - 20);
-
+		$event->name = substr($event->name, 0, 20)."\n".substr($event->name, 21, strlen($event->name) - 20);
+	
+		
 		$event_list[] = Calendar::event(
 			$event->name,
 			false,

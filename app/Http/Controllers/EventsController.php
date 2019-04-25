@@ -34,6 +34,7 @@ class EventsController extends Controller
 
 		$event_list[] = array(
 			$desc,
+			$event->id,
 			$event->name,
 			true,
 			$event->start_date,
@@ -88,7 +89,7 @@ class EventsController extends Controller
 	
 	public function delEvent($name){
 
-		DB::table('events')->where('name', $name)->delete();
+		DB::table('events')->where('id', $name)->delete();
 
 		$events = DB::table('events')->where('email',Auth::user()->email)->get();
 	    $event_list = [];
@@ -102,6 +103,7 @@ class EventsController extends Controller
 
 			$event_list[] = array(
 				$desc,
+				$event->id,
 				$event->name,
 				true,
 				$event->start_date,
