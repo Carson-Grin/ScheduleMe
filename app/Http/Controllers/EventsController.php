@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -50,11 +51,11 @@ class EventsController extends Controller
             'event_name' => 'required',
             'start_date' => 'required',
             'start_time' => 'required',
-            'end_date' => 'required',
+            //'end_date' => 'required',
 	        'end_time' => 'required'
         ]);
 
-        if($validator->fails()){
+	if($request->start_time >= $request->end_time or $request->start_date < substr(Carbon::now()->toDateTimeString(), 0, 10) or $validator->fails()){
             \Session::flash('warning', 'Please enter the valid details');
             return Redirect::to('/events')->withInput()->withErrors($validator);
 		}

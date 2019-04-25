@@ -36,7 +36,7 @@
 
                       <div class = "col-xs-3 col-sm-3 col-md-3">
                         <div class="form-group">
-                           {!! Form::label('start_date', 'Start Date:') !!}
+                           {!! Form::label('start_date', 'Date:') !!}
                            <div class="">
                            {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
                            {!! $errors->first('start_date', '<p class="alert alert-danger">:message</p>') !!}
@@ -44,7 +44,7 @@
                         </div>
                       </div>
 
-                      <div class = "col-xs-3 col-sm-3 col-md-3">
+                      <!-- <div class = "col-xs-3 col-sm-3 col-md-3">
                         <div class="form-group">
                            {!! Form::label('end_date', 'End Date:') !!}
                            <div class="">
@@ -52,7 +52,7 @@
                            {!! $errors->first('end_date', '<p class="alert alert-danger">:message</p>') !!}
                            </div>
                         </div>
-                      </div>
+                      </div>-->
 
 
 		      <div class = "col-xs-3 col-sm-3 col-md-3">
