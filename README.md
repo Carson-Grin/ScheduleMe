@@ -11,3 +11,6 @@
 - Database: MySQL
 - Databse hosted on AWS
 - Web-server hosted on Laravel Forge
+
+## Demo video:
+https://www.youtube.com/watch?time_continue=36&v=FeHFN4ucNOA
